@@ -27,14 +27,15 @@
  <!-- giphy API key: 6xez07R1PVnjgGI8L7RHFSg3RnC7q4ZU -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
+  $(document).ready(function() {
 
-    
     var topics = ["cat","dog","panda","horse","dolphin","owl","fish","zebra","bear", "chicken","cow","fox","sheep","kangaroo","giraffe","cow","sloth","lamb","bird","bat","tiger","deer","donkey","duck","eagle","elephant","frog","lion","rabbit","monkey","skunk"]; 
+
 
       for (var i = 0; i < topics.length; i++) {
          $("#animalsHere").append("<button value='" + topics[i] + "'>" + topics[i] + "</button>");
-      } 
-   
+        }; 
+      
       $("button").on('click', function(){
           var animal = $(this).val();
           var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=6xez07R1PVnjgGI8L7RHFSg3RnC7q4ZU&q=" + animal + "&limit=10&offset=0&rating=G&lang=en";
@@ -61,32 +62,24 @@
             gifDiv.prepend(animalImage);
 
             $("#animalsHere").prepend(gifDiv);
-          }
-
+          };
 
           });
       
          });
-
-       
-       
-       
-    
-
-
-  $("#select-animal").on("click", function(event) {
-    // Preventing the button from trying to submit the form
-    event.preventDefault();
-    // Storing the artist name
-    var inputAnimal = $("#animal-input").val().trim();
-  
-    $("#animalsHere").append("<button>" + inputAnimal + "</button>");
    
+        $("#select-animal").on("click", function(event) {
+        // Preventing the button from trying to submit the form
+        event.preventDefault();
+        // Storing the artist name
+        var inputAnimal = $("#animal-input").val().trim();
     
-
-  });
-
-    
+        //appending the user input to animalsHere div in the form of a button
+        $("#animalsHere").append("<button value='" + inputAnimal + "'>" + inputAnimal + "</button>");
+          
+      });
+      
+    });
 
 </script>
     
