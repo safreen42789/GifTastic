@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GifTastic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./Assets/CSS/sytle.css" />
+    <script src="./Assets/JS/main.js"></script>
+</head>
+<body>
+  
+        <!-- Animal Select Box -->
+        <form id = "animal-Form">
+            <!-- Label for Text Box -->
+            <label for= "animal-input"> Add an animal </label>
+              <!-- Text Input Box -->
+            <input type = "text" id= "animal-input"><br>
+              <!-- Submit Button -->
+            <input id = "select-animal" type = "submit" value="submit">
+        </form>
+
+        <!-- Animal Information -->
+    <div id="animalsHere"> </div>
+
+
+ <!-- giphy API key: 6xez07R1PVnjgGI8L7RHFSg3RnC7q4ZU -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    
+    var topics = ["cat","dog","panda","horse","dolphin","owl","fish","zebra","bear", "chicken","cow","fox","sheep","kangaroo","giraffe","cow","sloth","lamb","bird","bat","tiger","deer","donkey","duck","eagle","elephant","frog","lion","rabbit","monkey","skunk"]; 
+
+      for (var i = 0; i < topics.length; i++) {
+         $("#animalsHere").append("<button value='" + topics[i] + "'>" + topics[i] + "</button>");
+      } 
+   
+      $("button").on('click', function(){
+          var animal = $(this).val();
+          var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=6xez07R1PVnjgGI8L7RHFSg3RnC7q4ZU&q=" + animal + "&limit=10&offset=0&rating=G&lang=en";
+
+          $.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+          .then(function(response) {
+            var results = response.data;
+            console.log(response);
+
+          for (var i = 0; i < results.length; i++) {
+            var gifDiv = $("<div class='animalsHere'>");
+
+            var rating = results[i].rating;
+
+            var p = $("<p>").text("Rating: " + rating);
+
+            var animalImage = $("<img>");
+            animalImage.attr("src", results[i].images.fixed_height.url);
+
+            gifDiv.prepend(p);
+            gifDiv.prepend(animalImage);
+
+            $("#animalsHere").prepend(gifDiv);
+          }
+
+
+          });
+      
+         });
+
+       
+       
+       
+    
+
+
+  $("#select-animal").on("click", function(event) {
+    // Preventing the button from trying to submit the form
+    event.preventDefault();
+    // Storing the artist name
+    var inputAnimal = $("#animal-input").val().trim();
+  
+    $("#animalsHere").append("<button>" + inputAnimal + "</button>");
+   
+    
+
+  });
+
+    
+
+</script>
+    
+</body>
+</html>
