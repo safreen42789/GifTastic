@@ -36,6 +36,7 @@
         }; 
     //button on click function to initiate AJAX for giphy acquisition
       $("button").on('click', function(){
+      //creating a variable that will hold the value of each of the items in topics array, value is set for each index
       var animal = $(this).val();
       var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=6xez07R1PVnjgGI8L7RHFSg3RnC7q4ZU&q=" + animal + "&limit=10&offset=0&rating=G&lang=en";
       //initiate AJAX call
@@ -71,7 +72,7 @@
           });
       
          });
-      //on submit button click does the following... 
+      //on submit button click does the following...   
         $("#select-animal").on("click", function(event) {
         // Preventing the button from trying to submit the form
         event.preventDefault();
