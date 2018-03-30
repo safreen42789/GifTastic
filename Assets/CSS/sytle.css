@@ -1,3 +1,26 @@
-#animalsHere {
+#animal-Form {
     font-family: 'News Cycle', sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+  
 }
+
+button {
+    font-family: 'News Cycle', sans-serif;
+    font-weight: bold;
+    border-color: black;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin: 4px 2px;
+    border-radius: 4px;
+}
+
+button:hover{
+    background-color: rgb(243, 24, 170);
+    color: black;
+    
+}
+
