@@ -21,6 +21,29 @@ button {
 button:hover{
     background-color: rgb(243, 24, 170);
     color: black;
-    
 }
 
+input[type=text] {
+    background-color: rgba(128, 128, 128, 0.233) !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+    font-family: 'News Cycle', sans-serif;
+    font-weight: bold;
+    font-size:17px;
+}
+input[type=text]:focus {
+    border: 3px solid #555;
+    outline:none;
+}
+input[type=button], input[type=submit]{
+    font-family: 'News Cycle', sans-serif;
+    font-weight: bold;
+    font-size:16px;
+    background-color:  rgba(128, 128, 128, 0.233);
+    border-color: black;
+    color: black;
+    margin: 2px 2px 20px;
+    border-radius: 4px;
+    font-weight:bold;
+  
+}
