@@ -5,7 +5,7 @@ $(document).ready(function() {
     var topics = ["cat","dog","panda","horse","dolphin","owl","fish","zebra","bear", "chicken","cow","fox","sheep","kangaroo","giraffe","cow","sloth","lamb","bird","bat","tiger","deer","donkey","duck","eagle","elephant","frog","lion","rabbit","monkey","skunk"]; 
     //for loop that will loop through the topics array and create a button with corresponding value for each index
       for (var i = 0; i < topics.length; i++) {
-         $("#animalsHere").append("<button value='" + topics[i] + "'>" + topics[i] + "</button>");
+         $("#buttonsHere").prepend("<button value='" + topics[i] + "'>" + topics[i] + "</button>");
         }; 
     //button on click function to initiate AJAX for giphy acquisition
       $("button").on('click', function(){
@@ -52,9 +52,10 @@ $(document).ready(function() {
         event.preventDefault();
         // Storing the artist name
         var inputAnimal = $("#animal-input").val().trim();
+        for (var i = 0; i < $("#animal-input").length; i++) {
         //appending the user input to animalsHere div in the form of a button
-        $("#animalsHere").append("<button value='" + inputAnimal + "'>" + inputAnimal + "</button>");
-
+        $("#buttonsHere").prepend("<button value='" + inputAnimal + "'>" + inputAnimal + "</button>");
+        }
         $("button").on('click', function(){
         //creating a variable that will hold the value of each of the items in topics array, value is set for each index
         var animal = $(this).val();
